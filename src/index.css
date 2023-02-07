@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/* .container {
+  margin: 5rem;
+} */
+
+.main-modal {
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-btn {
+  color: white;
+  padding: 1rem;
+  background-color: #0a0f7b;
+  border: none;
+  border-radius: 10px;
+}
+.modal-wrapper {
+  background-color: rgba(0, 0, 0, 0.1);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.modal-container {
+  position: fixed;
+  background: #fff;
+  top: 40%;
+  left: 30%;
+  right: 30%;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.modal-container p {
+  padding: 1rem 0px;
+}
+.modal-container > button {
+  padding: 1rem;
+  background: rgb(5, 5, 103);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
