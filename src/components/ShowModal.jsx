@@ -19,21 +19,21 @@ const MyModal = ({ closeModal, handleEmail }) => {
   console.log("errors", errors);
   // const [formData, setFormData] = useState({});
 
-  const obj = {
-    name: "name",
-    laptop: "dell",
-    array: ["1", "2", "3"],
-    arrayWithObj: [
-      {
-        id: 0,
-        name: "dell",
-      },
-      {
-        id: 1,
-        name: "samsung",
-      },
-    ],
-  };
+  // const obj = {
+  //   name: "name",
+  //   laptop: "dell",
+  //   array: ["1", "2", "3"],
+  //   arrayWithObj: [
+  //     {
+  //       id: 0,
+  //       name: "dell",
+  //     },
+  //     {
+  //       id: 1,
+  //       name: "samsung",
+  //     },
+  //   ],
+  // };
 
   const onSubmit = (data) => {
     handleEmail(data);
@@ -42,15 +42,33 @@ const MyModal = ({ closeModal, handleEmail }) => {
 
     closeModal();
   };
+  const array = [
+    { id: 0, name: "sam" },
+    { id: 1, name: "hari" },
+    { id: 2, name: "ram" },
+  ];
   const handleClick = (e) => {
     e.stopPropagation();
   };
+  const filterId = array.filter((value) => {
+    return value.name !== "hari";
+  });
+  console.log("filter", filterId);
+
+  const findName = array.find((value) => {
+    return value.name === "ram";
+  });
+  console.log("valie", findName);
+  const { id, name } = findName;
+
   return (
     <div>
       <div className="modal-wrapper" onClick={closeModal}>
         <div className="modal-container" onClick={handleClick}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            {obj.arrayWithObj.map(function (value) {
+            {findName.id}
+            {findName.name}
+            {/* {obj.arrayWithObj.map(function (value) {
               console.log("value", value);
               return (
                 <p key={value}>
@@ -58,7 +76,7 @@ const MyModal = ({ closeModal, handleEmail }) => {
                   {value.id}
                 </p>
               );
-            })}
+            })} */}
             <h1>Login Form</h1>
 
             <div className="ui divider"></div>
@@ -75,12 +93,20 @@ const MyModal = ({ closeModal, handleEmail }) => {
                   <div className="field"> {errors.Username.message} </div>
                 )}
               </div>
-              {obj.array.map(function (value) {
+
+              {/* {obj.array.map(function (value) {
                 // console.log(value);
                 // console.log("value", value);
                 return <p key={value}>{value}</p>;
-              })}
-
+              })} */}
+              <div>
+                {filterId.map(({ id, name }) => {
+                  // console.log("filter", filterId);
+                  return <p key={id}>{name}</p>;
+                })}
+              </div>
+              {findName.name}
+              <div className="test"></div>
               <div className="field">
                 <label>Email</label>
                 <input
@@ -93,7 +119,6 @@ const MyModal = ({ closeModal, handleEmail }) => {
                   <div className="field">{errors.Email.message}</div>
                 )}
               </div>
-
               <div className="field">
                 <label>Password</label>
                 <input
@@ -106,13 +131,12 @@ const MyModal = ({ closeModal, handleEmail }) => {
                   <div className="field">{errors.Password.message}</div>
                 )}
               </div>
-
               <button type="submit" className="fluid ui button blue">
                 Submit
               </button>
             </div>
-            <p>{obj.name}</p>
-            <p>{obj.laptop}</p>
+            {/* <p>{obj.name}</p>
+            <p>{obj.laptop}</p> */}
           </form>
         </div>
       </div>
